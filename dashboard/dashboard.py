@@ -6,7 +6,7 @@ st.header("E-commerce Public Dataset")
 tab1, tab2 = st.tabs(["Order Data", "Customer Data"])
 
 with tab1:
-    order_df = pd.read_csv("order_data.csv")
+    order_df = pd.read_csv("dashboard/order_data.csv")
     order_summary = order_df.groupby(by="product_category_name_english").agg({"review_score": "mean"}).sort_values(by='review_score',ascending=True)
 
     st.write("Order data")
@@ -36,7 +36,7 @@ with tab1:
 
 
 with tab2:
-    customer_df= pd.read_csv("customer_data.csv")
+    customer_df= pd.read_csv("dashboard/customer_data.csv")
     customer_summary=customer_df.groupby(by='payment_type').customer_id.nunique().sort_values(ascending=True)
 
     st.write("Customer data")
